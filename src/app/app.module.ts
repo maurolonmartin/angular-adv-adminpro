@@ -2,18 +2,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 // Ruta
-import { APP_ROUTES } from './app.routes';
-
+import { AppRoutingModule } from './app-routing.module';
 // Modulos
 import { PagesModule } from './pages/pages.module';
 
 // Componentes
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './login/register.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 // Temporales
 import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -24,7 +24,7 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    APP_ROUTES,
+    AppRoutingModule,
     PagesModule,
     FormsModule
   ],
