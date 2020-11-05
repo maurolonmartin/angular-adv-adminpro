@@ -2,9 +2,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
 
-// Rutas
-import { PAGES_ROUTES } from './pages.routes';
-
 // Modulos
 import { SharedModule } from '../shared/shared.module';
 
@@ -17,6 +14,7 @@ import { PagesComponent } from './pages.component';
 // Temporal
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations: [
@@ -34,9 +32,9 @@ import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.co
     ],
     imports: [
         SharedModule,
-        PAGES_ROUTES,
         FormsModule,
-        ChartsModule
+        ChartsModule,
+        RouterModule
     ]
 })
 

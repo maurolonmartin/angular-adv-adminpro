@@ -5,27 +5,26 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 // Modulos
 import { PagesModule } from './pages/pages.module';
+import { AuthModule } from './auth/auth.module';
 
 // Componentes
 import { AppComponent } from './app.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
 
 // Temporales
 import { FormsModule } from '@angular/forms';
-
+import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent
+    NopagefoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     PagesModule,
+    AuthModule,
     FormsModule
   ],
   providers: [],
