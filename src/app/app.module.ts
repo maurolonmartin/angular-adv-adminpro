@@ -22,10 +22,10 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     PagesModule,
-    AuthModule,
-    FormsModule
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,54 +10,45 @@ export class IncrementadorComponent implements OnInit {
   @ViewChild('txtPorcentaje', {static: false}) txtPorcentaje: ElementRef;
 
   @Input('nombre') leyenda: string = 'Leyenda';
-  @Input() porcentaje: number = 50;
+  @Input('valor') progreso: number = 40;
+  @Input() btnClass: string = 'btn-primary';
 
-  @Output() cambioValor: EventEmitter<number> = new EventEmitter();
+  @Output('valor') valorSalida: EventEmitter<number> = new EventEmitter();
 
   constructor() {
-    // console.log('Leyenda', this.leyenda );
-    // console.log('Porcentaje', this.porcentaje);
   }
 
   ngOnInit() {
-    // console.log('Leyenda', this.leyenda );
-    // console.log('Porcentaje', this.porcentaje);
-  }
-
-  onChanges( newValue: number ) {
-
-    // let elemHTML: any = document.getElementsByName('porcentaje');
-
-    // console.log(this.txtPorcentaje);
-
-    if ( newValue >= 100 ) {
-      this.porcentaje = 100;
-    } else if ( newValue <= 0 ) {
-      this.porcentaje = 0;
-    } else {
-      this.porcentaje = newValue;
-    }
-
-    // elemHTML.value = this.porcentaje;
-    this.txtPorcentaje.nativeElement.value = this.porcentaje;
-
-    this.cambioValor.emit( this.porcentaje );
+    this.btnClass = `btn ${ this.btnClass }`;
   }
 
   cambiarValor( valor: number ) {
 
-    if ( this.porcentaje >= 100 && valor > 0 ) {
-      this.porcentaje = 100;
-      return;
+    if ( this.progreso >= 100 && valor > 0 ) {
+      this.valorSalida.emit(100);
+      return this.progreso = 100;
     }
 
-    if ( this.porcentaje <= 0 && valor < 0 ) {
-      this.porcentaje = 0;
-      return;
+    if ( this.progreso <= 0 && valor < 0 ) {
+      this.valorSalida.emit(0);
+      return this.progreso = 0;
     }
-    this.porcentaje = this.porcentaje + valor;
-    this.cambioValor.emit( this.porcentaje );
+
+    this.progreso = this.progreso + valor;
+    this.valorSalida.emit( this.progreso );
     this.txtPorcentaje.nativeElement.focus();
+  }
+
+  onChange( nuevoValor: number ) {
+    if ( nuevoValor >= 100) {
+      this.progreso = 100;
+    } else if ( nuevoValor <= 0) {
+      this.progreso = 0;
+    } else {
+      this.progreso = nuevoValor;
+    }
+
+    this.valorSalida.emit( this.progreso );
   }
 
 }
