@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartType } from 'chart.js';
-import { MultiDataSet, Label } from 'ng2-charts';
 
 @Component({
   selector: 'app-graficas1',
@@ -11,7 +9,7 @@ export class Graficas1Component implements OnInit {
 
   graficos: any = {
     grafico1: {
-      labels: ['Con Frijoles', 'Con Natilla', 'Con tocino'],
+      labels: ['Con Frijoles', 'Con Natilla', 'Con mantequilla'],
       data:  [24, 30, 46],
       type: 'doughnut',
       leyenda: 'El pan se come con'
