@@ -13,6 +13,7 @@ import { PagesComponent } from './pages.component';
 
 // Temporal
 import { RouterModule } from '@angular/router';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 
 @NgModule({
@@ -20,12 +21,14 @@ import { RouterModule } from '@angular/router';
         PagesComponent,
         DashboardComponent,
         Graficas1Component,
-        ProgressComponent
+        ProgressComponent,
+        AccountSettingsComponent
     ],
     exports: [
         DashboardComponent,
         Graficas1Component,
-        ProgressComponent
+        ProgressComponent,
+        AccountSettingsComponent
     ],
     imports: [
         FormsModule,
